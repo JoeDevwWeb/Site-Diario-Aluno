@@ -1,0 +1,384 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+/*Header*/
+::-webkit-scrollbar {
+    display: none;
+}
+/*------------ Cabeçalho */
+.header{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 3%;
+    padding: 2%;
+    background: cadetblue;
+}
+.barra{
+    display: flex;
+    align-items: center;
+}
+/* logo */
+.barra .logo a img{
+    width: 6rem;
+}
+.barra .logo a{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+/* barra de busca */
+.busca{
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+.busca #barraPesquisa {
+    width: 400px;
+    padding-left: 5px;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border: 0.2px solid transparent;
+}
+.busca:hover{
+    border: 0.2px solid black;
+}
+
+
+/* Foto dp perfil*/
+.perfil #perfil{
+    width: 8rem;
+    border-radius: 50%;
+}
+/* Barra de ferramentas */
+.barraferramentas{
+    position: fixed;
+    top: 0;
+    left: -240px;
+    width: 240px;
+    height: 100%; 
+    padding-top: 2%;
+    background: teal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.4s ease;
+}
+.barraferramentas ul li{
+    list-style: none;
+    background: white;
+    margin: 20px 0;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px 30px;
+}
+.barraferramentas ul li:hover{
+    background: #90cadd;
+}
+.barraferramentas ul li a{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: black;
+    font-weight: 1000;
+    gap: 6px;
+}
+.barraferramentas div:nth-child(4) {
+  display: flex;
+  margin-right: 30px;
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 15px;
+}
+
+/* botão */
+#btnOpen{
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 10px;
+}
+#btnClose{
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+#btnOpen:hover, #btnClose:hover{
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+/*----------------------Page login*/
+.login{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+.areaCadrastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+form input{
+    padding-left: 10px;
+    border: 0.3px solid rgba(0, 0, 0, 0.2);
+    border-radius: 9px;
+    width: 500px;
+    height: 30px;
+    outline: 0;
+}
+form input::placeholder{
+    font-size: 1rem;
+}
+form button{
+    background: teal;
+    color: white;
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    border: transparent;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+hr{
+    margin: 10px;
+    width: 70%;
+}
+.areaCadrastro .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4%;
+}
+.areaCadrastro .logo img{
+    width: 10rem;
+}
+
+
+
+
+/*-----------------page Home projetos*/
+
+.main{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.publicacoes{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.texto{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.projetos{
+    background: white;
+    border: 0.2px solid transparent;
+}
+.projetos:hover{
+    border: 0.2px solid black;
+}
+.projetos img {
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover;
+}
+.projetos p{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.projetos p:nth-child(2){
+    font-size: 30px;
+}
+
+/* Comentario do estagio */
+.estagio{
+    width: 30rem;
+    height: 18rem;
+    background: rgba(211, 210, 210, 0.836);
+    display: flex;
+    flex-direction: column;
+}
+.tituloPost{
+    padding: 2%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.tituloPost h2{
+    display: flex;
+    max-width: 400px;
+    flex-wrap: wrap;
+}
+.textoEstagio p{
+    padding: 2%;
+    text-align: justify;
+}
+
+
+.post{
+    width: 30rem;
+    height: 10rem;
+    background: black;
+}
+
+.main img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* area de texto */
+.editorTexto{
+    width: 30rem;
+    height: 10rem;
+    background: rgba(135, 207, 235, 0.144);
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.editorTexto p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#postagem{
+    width: 100%;
+    height: 7rem;
+    resize: none;
+    background: rgba(141, 236, 227, 0.267);
+}
+
+
+/* noticias */
+.mainNoticias{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+hr{
+    width: 50rem;
+}
+
+.postagens{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.projeto{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.projeto img{
+    width: 10rem;
+    height: 10rem;
+}
+/* footer */
+footer{
+    width: 100%;
+    height: 120px;
+    margin-top: 30px;
+    background: gray;
+}
+
+
+
+@media (max-width: 800px) {
+
+.postagens{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+hr{
+    width: 30rem;
+}
+.projeto img{
+    width: 8rem;
+    height: 7rem;
+}
+
+}
+
+/*---------------------Loading*/
+.loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: is-rotating 1s infinite;
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: rgb(6, 75, 75);
+    height: 50px;
+    width: 50px;
+  }
+  
+  @keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configurações</title>
+  <link rel="stylesheet" href="../style.css">
+ </head>
+<body>
+  
+  <section>
+    <header class="header">
+      <div class="barra">
+        <!-- Botao de Ferramentas -->
+          <div class="btnFerramentas">
+            <i id="btnOpen" class="fa-solid fa-bars"></i>
+          </div>
+        <!-- Logo -->
+        <div class="logo">
+            <a href="/">
+            <img id="logo" src="../imagens/logo.png" alt="logo do site">
+            <p>Diário do Aluno</p>
+            </a>
+        </div>
+      </div>
+      
+        <!-- Barra de busca -->
+       <div class="busca">
+            <input type="text" name="busca" id="barraPesquisa">
+            <i class="fa-solid fa-magnifying-glass"></i>
+       </div>
+    </header>
+  </section>
+
+  <section>
+      <!-- Barra de ferramentas -->
+      <aside class="barraferramentas">
+        <div class="btnFerramentas">
+          <i id="btnClose" class="fa-solid fa-close"></i>
+        </div>
+        <div class="perfil">
+          <img id="perfil" src="../imagens/perfil.jpg" alt="foto do perfil">
+        </div>
+        <ul>
+          <li><a href="/">
+              <i class="fa-solid fa-house"></i>
+              Início</a></li>
+          <li><a href="../html/projetos.html">
+              <i class="fa-solid fa-award"></i>
+              Projetos</a></li>
+          <li><a href="../html/diario.html">
+              <i class="fa-solid fa-circle-info"></i>
+              Diário</a></li>
+          <li><a href="../html/configuracoes.html">
+              <i class="fa-solid fa-gear"></i>
+              Configurações</a></li>
+        </ul>
+        <div id="deslogar" onclick="logout()">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </div>
+      </aside>
+  </section>
+
+</body>
+  <script src="https://kit.fontawesome.com/f6748ef481.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="../script/jquery.js"></script>
+</html>
