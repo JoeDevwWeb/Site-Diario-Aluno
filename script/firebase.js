@@ -56,15 +56,6 @@ let texto = document.getElementById('textProjeto').value;
 
 let storageRef = firebase.storage().ref('imagens');
 
-let fotoFOda = storageRef.child('imagem1.jpg').getDownloadURL()
-.then(url=>{
-   let imgFoda = document.getElementById('Afoto');
-   imgFoda.src = url;
-}).catch(e=>{
-  alert('Not donwload');
-})
-
-
 
 
 
@@ -75,27 +66,20 @@ let arquivo = document.getElementById('arquivo').files[0];
 
 let thisRef = storageRef.child(arquivo.name)
 
-thisRef.snapshot.ref.getDownloadURL()
+thisRef.put(arquivo).then(res=>{
+
+thisRef.storageRef.child(arquivo).getDownloadURL()
 .then(url=>{
-  alert('Deu certo'+ url);
+   let imgFoda = document.getElementById('Afoto');
+   imgFoda.src = url;
+}).catch(e=>{
+  alert('Not donwload');
 })
 
-thisRef.put(arquivo).then(res=>{
+  
 }).catch(e=>{
   alert('Deu merda'+ e);
 })
-  
-bd.collection('user')
-  .doc('e8WppsmfSeMFBSoMIeDWeWI4TcC2')
-  .get().then(function (doc){
-    if(doc.exists){
-      console.log('Existe')
-    }else{
-      console.log('Nao existe')
-    }
-  })
-  
-}
 
-let imgFoda = document.getElementById('Afoto');
-imgFoda.src = fotoFOda;
+
+}
