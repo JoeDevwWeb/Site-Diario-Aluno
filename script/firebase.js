@@ -55,7 +55,7 @@ let texto = document.getElementById('textProjeto').value;
 
 function postar(){
 let arquivo = document.getElementById('arquivo').files[0];
-console.log(arquivo);
+alert(arquivo);
 
   
 bd.collection('user')
