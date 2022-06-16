@@ -75,7 +75,9 @@ thisRef.put(arquivo).then(res=>{
 //}).catch(e=>{
 //  alert('Not donwload');
 //})
-
+  $('.addDados').css('background', 'gren');
+  setTimeout = 2000;
+  window.location.href = '/';
   
 }).catch(e=>{
   alert('Deu merda'+ e);
