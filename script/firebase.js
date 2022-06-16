@@ -68,13 +68,13 @@ let thisRef = storageRef.child(arquivo.name)
 
 thisRef.put(arquivo).then(res=>{
 
-thisRef.storageRef.child(arquivo).getDownloadURL()
-.then(url=>{
-   let imgFoda = document.getElementById('Afoto');
-   imgFoda.src = url;
-}).catch(e=>{
-  alert('Not donwload');
-})
+// thisRef.storageRef.child(arquivo).getDownloadURL()
+// .then(url=>{
+//   let imgFoda = document.getElementById('Afoto');
+//   imgFoda.src = url;
+//}).catch(e=>{
+//  alert('Not donwload');
+//})
 
   
 }).catch(e=>{
