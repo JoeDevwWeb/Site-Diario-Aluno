@@ -7,5 +7,15 @@ $(document).ready(function(){
     $('#btnClose').click(function(){
         $('.barraferramentas').css("left","-240px");
 });
+
+  $('#addProjeto').click(function(){
+      $('.addProjeto').css('display', 'flex');
+  })
+  
+  $('#btnAdd').click(function(){
+      $('.addProjeto').css('display', 'none');
+  })
+  
 });
+
 

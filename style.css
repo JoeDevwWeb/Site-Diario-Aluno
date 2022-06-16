@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100&family=Joan&display=swap');
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Joan', serif;
 }
 
 
@@ -66,6 +69,7 @@
 .perfil #perfil{
     width: 8rem;
     border-radius: 50%;
+    background: rgba(250, 250, 250, 0.8);
 }
 /* Barra de ferramentas */
 .barraferramentas{
@@ -126,6 +130,10 @@
 }
 #btnOpen:hover, #btnClose:hover{
     color: white;
+}
+#closeAdd{
+   font-size: 1.6rem;
+   cursor: pointer;
 }
 
 
@@ -342,6 +350,63 @@ footer{
 
 
 
+
+
+/*-----------------Adicionar projetos*/
+.addDados{
+  width: 60%;
+  border-radius: 20px;
+  background: white;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid black;
+}
+
+.addDados form{
+  width: 100%;
+  height: 100%;
+}
+.dadosPrincipais{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.descrisaoProjeto{
+  width: 100%;
+}
+#textProjeto{
+ width: 100%;
+}
+.dadosPrincipais div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addDados form input{
+ width: 200px;
+}
+
+.addDados form label img{
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border: 0.3px solid black;
+}
+
+.addDados form input[type='file']{
+  display: none;
+}
+
+
+
+
 @media (max-width: 800px) {
 
 .postagens{
@@ -361,24 +426,13 @@ hr{
 }
 
 /*---------------------Loading*/
-.loading{
+.addProjeto{
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    animation: is-rotating 1s infinite;
-    border: 6px solid #e5e5e5;
-    border-radius: 50%;
-    border-top-color: rgb(6, 75, 75);
-    height: 50px;
-    width: 50px;
-  }
-  
-  @keyframes is-rotating {
-    to {
-      transform: rotate(1turn);
-    }
+    background: rgba(0, 0, 0, 0.3);
   }

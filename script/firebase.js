@@ -11,6 +11,7 @@
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  const storage = firebase.storage();
 
 // Desconectar a conta
 function logout() {
@@ -24,21 +25,20 @@ function logout() {
 
 // firabase
 
-function addDado(){
 
-   let name = document.getElementById('nome').value 
-   
-   let obj = {
-     username: nome
-   }
-   
-   firebase.firestore().collection('user').add(obj)
-   .then(doc=>{
-    console.log(doc.id) 
-   }).catch(e=>{
-     console.log(e)
-   })
-}
+let photo = document.getElementById('Foto');
+let file = document.getElementById('arquivo');
 
+file.addEventListener('change', (event) =>{
+  
+  if(file.files.length <=0){
+    return;
+  }
+  let leitor = new  FileReader();
+  leitor.onload = () =>{
+    photo.src = leitor.result;
+  }
+  leitor.readAsDataURL(file.files[0]);
+})
 
 // Storage 
