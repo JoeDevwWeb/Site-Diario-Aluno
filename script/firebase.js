@@ -52,11 +52,10 @@ let nameAutor = document.getElementById('nomeAutor').value;
 
 let texto = document.getElementById('textProjeto').value;
 
-let storageRef = firebase.storage.ref('imagens');
+let storageRef = firebase.storage().ref('imagens');
 
 function postar(){
 let arquivo = document.getElementById('arquivo').files[0];
-alert(arquivo);
 
 let thisRef = storageRef.child(arquivo.name)
 
