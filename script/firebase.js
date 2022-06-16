@@ -56,9 +56,9 @@ let storageRef = firebase.storage().ref('imagens');
 
 let fotoFOda = storageRef.child('imagem1.jpg').getDownloadURL()
 .then(url=>{
-   alert('Donwload');
+   alert(url);
    let imgFoda = document.getElementById('Afoto');
-   imgFoda.src = fotoFOda;
+   imgFoda.src = url;
 }).catch(e=>{
   alert('Not donwload');
 })
@@ -86,3 +86,5 @@ bd.collection('user')
   
 }
 
+let imgFoda = document.getElementById('Afoto');
+imgFoda.src = fotoFOda;
