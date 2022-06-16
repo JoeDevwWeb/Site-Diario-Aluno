@@ -54,6 +54,15 @@ let texto = document.getElementById('textProjeto').value;
 
 let storageRef = firebase.storage().ref('imagens');
 
+let fotoFOda = storageRef.child('imagem1.jpg').getDownloadURL()
+.then(url=>{
+   alert('Donwload');
+   let imgFoda = document.getElementById('Afoto');
+   imgFoda.src = fotoFOda;
+}).catch(e=>{
+  alert('Not donwload');
+})
+
 function postar(){
 let arquivo = document.getElementById('arquivo').files[0];
 
@@ -76,3 +85,4 @@ bd.collection('user')
   })
   
 }
+
