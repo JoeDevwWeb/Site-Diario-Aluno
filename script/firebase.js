@@ -76,34 +76,15 @@ let nameAutor = document.getElementById('nomeAutor').value;
 let texto = document.getElementById('textProjeto').value;
 
 
-let storageRef = firebase.storage().ref('projetos');
+function posta(){
+  let arquivoImg = document.getElementById('Foto').target.files[0];
 
-
-
-
-function postar(){
-  loading();
-  let arquivo = document.getElementById('arquivo').files[0];
-
- let thisRef = storageRef.child(arquivo.name)
-
- thisRef.put(arquivo).then(res=>{
-
- thisRef.child(arquivo).getDownloadURL()
- .then(url=>{
-   //let imgFoda = document.getElementById('Afoto');
-   //imgFoda.src = url;
-   alert(url);
-}).catch(e=>{
-  alert('Not donwload');
-})
-//  $('.addDados').css('background', 'gren');
-  loadingOut();
-  window.location.href = '/';
+  const uploadImg = storage.ref('projetos').child(arquivoImg.name)
+  .put(arquivoImg).then(function(){
+    alert('Upload')
+  }).catch(e=>{
+    console.log(e);
+  });
   
-}).catch(e=>{
-  alert('Deu merda'+ e);
-})
-
 
 }
