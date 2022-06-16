@@ -77,13 +77,12 @@ let titulo = document.getElementById('titulo').value;
 let nameAutor = document.getElementById('nomeAutor').value;
 let texto = document.getElementById('textProjeto').value;
 
-let storageRef = firebase.storage().ref('projetos');
 
 function postar() {
   loading();
   let arquivo = document.getElementById('arquivo').files[0];
 
-  let thisRef = storageRef
+  let thisRef = storage.ref('projetos')
   .child(arquivo.name)
   .put(arquivo).then(res => {
 
