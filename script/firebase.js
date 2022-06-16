@@ -52,24 +52,35 @@ let nameAutor = document.getElementById('nomeAutor').value;
 
 let texto = document.getElementById('textProjeto').value;
 
+
+
 let storageRef = firebase.storage().ref('imagens');
 
 let fotoFOda = storageRef.child('imagem1.jpg').getDownloadURL()
 .then(url=>{
-   alert(url);
    let imgFoda = document.getElementById('Afoto');
    imgFoda.src = url;
 }).catch(e=>{
   alert('Not donwload');
 })
 
+
+
+
+
+
+
 function postar(){
 let arquivo = document.getElementById('arquivo').files[0];
 
 let thisRef = storageRef.child(arquivo.name)
 
+thisRef.snapshot.ref.getDownloadURL()
+.then(url=>{
+  alert('Deu certo'+ url);
+})
+
 thisRef.put(arquivo).then(res=>{
-  alert('Deu certo');
 }).catch(e=>{
   alert('Deu merda'+ e);
 })
