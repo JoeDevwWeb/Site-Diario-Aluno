@@ -75,17 +75,32 @@ let titulo = document.getElementById('titulo').value;
 let nameAutor = document.getElementById('nomeAutor').value;
 let texto = document.getElementById('textProjeto').value;
 
-
-function posta(){
-  let arquivoImg = document.getElementById('Foto').files[0];
+function postar() {
   loading();
-  const uploadImg = storage.ref('projetos').child(arquivoImg.name)
-  .put(arquivoImg).then(res=>{
-    loadingOut();
-    alert('Upload')
-  }).catch(e=>{
-    console.log(e);
-  });
   
+  let arquivo = document.getElementById('arquivo').files[0];
+
+  let thisRef = storage
+  .ref('projetos')
+  .child(arquivo.name)
+  .put(arquivo)
+  .then(res => {
+
+    thisRef.child(arquivo).getDownloadURL()
+      .then(url => {
+        //let imgFoda = document.getElementById('Afoto');
+        //imgFoda.src = url;
+        alert(url);
+      }).catch(e => {
+        alert('Not donwload');
+      })
+    //  $('.addDados').css('background', 'gren');
+    loadingOut();
+    window.location.href = '/';
+
+  }).catch(e => {
+    alert('Deu merda' + e);
+  })
+
 
 }
