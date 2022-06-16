@@ -77,10 +77,11 @@ let texto = document.getElementById('textProjeto').value;
 
 
 function posta(){
-  let arquivoImg = document.getElementById('Foto').target.files[0];
-
+  let arquivoImg = document.getElementById('Foto').files[0];
+  loading();
   const uploadImg = storage.ref('projetos').child(arquivoImg.name)
-  .put(arquivoImg).then(function(){
+  .put(arquivoImg).then(res=>{
+    loadingOut();
     alert('Upload')
   }).catch(e=>{
     console.log(e);
