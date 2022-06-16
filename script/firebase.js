@@ -82,23 +82,26 @@ function postar() {
   loading();
   let arquivo = document.getElementById('arquivo').files[0];
 
-  let thisRef = storage.ref('projetos')
+  let thisRef = storage
+  .ref('projetos')
   .child(arquivo.name)
   .put(arquivo).then(res => {
-
-  //let urlimg = storageRef.child(arquivo).getDownloadURL()
-    //  .then(url => {
-      loadingOut();
-      //  alert(url);
-    //  }).catch(e => {
-    //    alert('Not donwload');
-    //  })
-
+    loadingOut();
      window.location.href = '/';
 
   }).catch(e => {
     alert('Deu merda' + e);
   })
 
+  let urlimg = storage
+  .ref('projetos')
+  .child(arquivo.name)
+  .getDownloadURL()
+  .then(url => {
+     alert(url);
+      }).catch(e => {
+      alert('Not donwload');
+  })
+  
 
 }
