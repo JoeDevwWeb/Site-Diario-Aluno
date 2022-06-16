@@ -11,6 +11,7 @@
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  const bd = firebase.firestore();
   const storage = firebase.storage();
 
 // Desconectar a conta
@@ -24,7 +25,6 @@ function logout() {
 };
 
 // firabase
-
 
 let photo = document.getElementById('Foto');
 let file = document.getElementById('arquivo');
@@ -41,4 +41,14 @@ file.addEventListener('change', (event) =>{
   leitor.readAsDataURL(file.files[0]);
 })
 
+
 // Storage 
+bd.collection('user')
+  .doc('e8WppsmfSeMFBSoMIeDWeWI4TcC2')
+  .get().then(function (doc){
+    if(doc.exists){
+      console.log('Existe')
+    }else{
+      console.log('Nao existe')
+    }
+  })

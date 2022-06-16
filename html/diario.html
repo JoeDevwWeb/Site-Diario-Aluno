@@ -35,7 +35,7 @@
           <i id="btnClose" class="fa-solid fa-close"></i>
         </div>
         <div class="perfil">
-          <img id="perfil" src="../imagens/perfil.jpg" alt="foto do perfil">
+          <img id="perfil" src="../imagens/logo.png" alt="Logo">
         </div>
         <ul>
           <li><a href="/">
@@ -45,27 +45,53 @@
               <i class="fa-solid fa-award"></i>
               Projetos</a></li>
           <li><a href="../html/diario.html">
-              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-book"></i>
               Diário</a></li>
-          <li><a href="../html/configuracoes.html">
-              <i class="fa-solid fa-gear"></i>
-              Configurações</a></li>
+          <li><a id="addProjeto">
+              <i class="fa-solid fa-plus"></i>
+              Adicionar</a></li>
         </ul>
-        <div id="deslogar" onclick="logout()">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        </div>
       </aside>
   </section>
   <main>
-      <input type="text" id="nome" placeholder="Seu nome">
-      <button id="add" type="button">Enviar</button>
+      
   </main>
+  
+<div class="addProjeto">
+      
+    <div class="addDados">
+       <form>
+         
+         <div id="btnAdd">
+           <i id="closeAdd" class="fa-solid fa-close"></i>
+           <h2>Adicionar Projeto</h2>
+         </div>
+           
+         <div class="dadosPrincipais">
+           <input type="text" placeholder="Título do projeto">
+           <input type="text" placeholder="Data">
+           <input type="text" name="autor" id="nameAutor" placeholder="Autor">
+           <label for="arquivo" id="photo">
+           <img src="../imagens/camera.png" id="Foto">
+           </label>
+           <input type="file" name="arquivo" id="arquivo" accept="image/*">
+           <textarea name="diario" id="textProjeto" cols="30" rows="10"></textarea>
+           <button type="button">Postar</button>
+          </div>
+       </form>
+    </div>
+  </div>
+  
+  
 </body>
 <!-- Scripts -->
     <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+    
     <script src="https://kit.fontawesome.com/f6748ef481.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../script/jquery.js"></script>
-    <script defer src="./script/firebase.js"></script>
+    <script defer src="../script/firebase.js"></script>
 </html>
