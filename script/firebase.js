@@ -42,7 +42,22 @@ file.addEventListener('change', (event) =>{
 })
 
 
-// Storage 
+// Storage
+
+// Variaveis postar imagem 
+
+let titulo = document.getElementById('titulo').value;
+let data = document.getElementById('data').value;
+let nameAutor = document.getElementById('nomeAutor').value;
+
+let texto = document.getElementById('textProjeto').value;
+
+
+function postar(){
+let arquivo = document.getElementById('arquivo').files[0];
+console.log(arquivo);
+
+  
 bd.collection('user')
   .doc('e8WppsmfSeMFBSoMIeDWeWI4TcC2')
   .get().then(function (doc){
@@ -52,3 +67,5 @@ bd.collection('user')
       console.log('Nao existe')
     }
   })
+  
+}
