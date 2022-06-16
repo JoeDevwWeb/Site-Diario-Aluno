@@ -19,7 +19,10 @@
 }
 /*------------ Cabeçalho */
 .header{
-    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 100vw;
     height: 3%;
     padding: 2%;
     background: cadetblue;
