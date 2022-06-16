@@ -24,8 +24,14 @@ function logout() {
  });
 };
 
-// firabase
+firebase.auth().onAuthStateChanged(user => {
+    if (!user) {
+      window.location.href = "./html/login.html";
+    }
+  });
 
+
+// Prewview da imagem selecionada
 let photo = document.getElementById('Foto');
 let file = document.getElementById('arquivo');
 
@@ -41,17 +47,33 @@ file.addEventListener('change', (event) =>{
   leitor.readAsDataURL(file.files[0]);
 })
 
+// loading
+
+function loading() {
+  const div = document.createElement("div");
+  div.classList.add("loading");
+  
+  const carrega = document.createElement("div");
+  carrega.classList.add('carrega');
+  div.appendChild(carrega);
+  document.body.appendChild(div);
+}
+
+function loadingOut() {
+ const loadings = document.getElementsByClassName("loading");
+ if(loadings.length){
+   loadings[0].remove();
+ }
+}
+
 
 // Storage
 
 // Variaveis postar imagem 
 
 let titulo = document.getElementById('titulo').value;
-let data = document.getElementById('data').value;
 let nameAutor = document.getElementById('nomeAutor').value;
-
 let texto = document.getElementById('textProjeto').value;
-
 
 
 let storageRef = firebase.storage().ref('imagens');
@@ -59,14 +81,13 @@ let storageRef = firebase.storage().ref('imagens');
 
 
 
-
-
 function postar(){
-let arquivo = document.getElementById('arquivo').files[0];
+  loading();
+  let arquivo = document.getElementById('arquivo').files[0];
 
-let thisRef = storageRef.child(arquivo.name)
+ let thisRef = storageRef.child(arquivo.name)
 
-thisRef.put(arquivo).then(res=>{
+ thisRef.put(arquivo).then(res=>{
 
 // thisRef.storageRef.child(arquivo).getDownloadURL()
 // .then(url=>{
@@ -75,8 +96,8 @@ thisRef.put(arquivo).then(res=>{
 //}).catch(e=>{
 //  alert('Not donwload');
 //})
-  $('.addDados').css('background', 'gren');
-  setTimeout = 2000;
+//  $('.addDados').css('background', 'gren');
+  loadingOut();
   window.location.href = '/';
   
 }).catch(e=>{
