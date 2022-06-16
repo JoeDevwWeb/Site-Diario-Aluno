@@ -89,7 +89,6 @@ async function postar() {
   .child(arquivo.name)
   .put(arquivo).then(res => {
     loadingOut();
-     window.location.href = '/';
 
   }).catch(e => {
     alert('Deu merda' + e);
