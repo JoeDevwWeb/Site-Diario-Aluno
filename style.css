@@ -19,9 +19,6 @@
 }
 /*------------ Cabeçalho */
 .header{
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
     width: 100%;
     height: 3%;
     padding: 2%;
