@@ -194,7 +194,6 @@ hr{
     justify-content: center;
     align-items: center;
     padding-top: 5rem;
-    padding-bottom: 5rem;
 }
 .publicacoes{
     display: flex;
@@ -313,6 +312,7 @@ hr{
 }
 .projeto{
     display: flex;
+    padding: 2%;
     width: 100%;
     align-items: center;
 }
@@ -394,8 +394,16 @@ hr{
     width: 30rem;
 }
 .projeto img{
-    width: 8rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
+}
+.projetos img{
+   width: 350px;
+   height: 350px;
+}
+.areaCadrastro form input {
+  width: 250px;
+  height: 30px;
 }
 
 }
