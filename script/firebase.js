@@ -15,7 +15,8 @@
   const storage = firebase.storage();
 
 // Desconectar a conta
-function logout() {
+async function logout() {
+  await firebase
   loading();
   firebase.auth().signOut()
  .then(() => {
@@ -78,7 +79,8 @@ let nameAutor = document.getElementById('nomeAutor').value;
 let texto = document.getElementById('textProjeto').value;
 
 
-function postar() {
+async function postar() {
+  await firebase
   loading();
   let arquivo = document.getElementById('arquivo').files[0];
 
@@ -92,16 +94,23 @@ function postar() {
   }).catch(e => {
     alert('Deu merda' + e);
   })
-
-  let urlimg = storage
-  .ref('projetos')
-  .child(arquivo.name)
-  .getDownloadURL()
-  .then(url => {
-     alert(url);
-      }).catch(e => {
-      alert('Not donwload');
-  })
   
+  const url = await storage
+    .ref('projetos/')
+    .child(arquivo.name)
+    .getDownloadURL();
+    
+    alert(url);
 
+}
+
+// Salvar text
+
+
+function postTexto(){
+ let nomeAutor = document.getElementById('autor').value;
+ let texto = document.getElementById('postagem').value;
+
+
+  
 }
