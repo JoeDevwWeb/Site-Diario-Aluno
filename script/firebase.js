@@ -80,26 +80,22 @@ let texto = document.getElementById('textProjeto').value;
 
 
 async function postar() {
-  await firebase
   loading();
   let arquivo = document.getElementById('arquivo').files[0];
-
-  let thisRef = storage
-  .ref('projetos')
-  .child(arquivo.name)
-  .put(arquivo).then(res => {
-    loadingOut();
-
-  }).catch(e => {
-    alert('Deu merda' + e);
-  })
   
-  const url = await storage
+  await storage
+  .ref('projetos/')
+  .child(arquivo.name)
+  .put(arquivo);
+  
+  await storage
     .ref('projetos/')
     .child(arquivo.name)
-    .getDownloadURL();
-    
-    alert(url);
+    .getDownloadURL()
+    .then((url) => {
+      alert(url);
+      loadingOut();
+    })
 
 }
 
