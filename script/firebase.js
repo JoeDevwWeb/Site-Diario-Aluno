@@ -87,17 +87,15 @@ function postar() {
   .child(arquivo.name)
   .put(arquivo).then(res => {
 
-  let urlimg = storageRef.child(arquivo).getDownloadURL()
-      .then(url => {
-        let imgFoda = document.getElementById('Afoto');
-        imgFoda.src = url;
-        loadingOut();
-        alert(url);
-      }).catch(e => {
-        alert('Not donwload');
-      })
+  //let urlimg = storageRef.child(arquivo).getDownloadURL()
+    //  .then(url => {
+      loadingOut();
+      //  alert(url);
+    //  }).catch(e => {
+    //    alert('Not donwload');
+    //  })
 
-    // window.location.href = '/';
+     window.location.href = '/';
 
   }).catch(e => {
     alert('Deu merda' + e);
