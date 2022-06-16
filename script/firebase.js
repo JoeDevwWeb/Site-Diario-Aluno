@@ -16,8 +16,10 @@
 
 // Desconectar a conta
 function logout() {
+  loading();
   firebase.auth().signOut()
  .then(() => {
+   loadingOut();
    window.location.href = "./html/login.html";
  }).catch(() => {
    alert("Erro ao fazer logout");
@@ -75,28 +77,27 @@ let titulo = document.getElementById('titulo').value;
 let nameAutor = document.getElementById('nomeAutor').value;
 let texto = document.getElementById('textProjeto').value;
 
+let storageRef = firebase.storage().ref('projetos');
+
 function postar() {
   loading();
-  
   let arquivo = document.getElementById('arquivo').files[0];
 
-  let thisRef = storage
-  .ref('projetos')
+  let thisRef = storageRef
   .child(arquivo.name)
-  .put(arquivo)
-  .then(res => {
+  .put(arquivo).then(res => {
 
-    thisRef.child(arquivo).getDownloadURL()
+  let urlimg = storageRef.child(arquivo).getDownloadURL()
       .then(url => {
-        //let imgFoda = document.getElementById('Afoto');
-        //imgFoda.src = url;
+        let imgFoda = document.getElementById('Afoto');
+        imgFoda.src = url;
+        loadingOut();
         alert(url);
       }).catch(e => {
         alert('Not donwload');
       })
-    //  $('.addDados').css('background', 'gren');
-    loadingOut();
-    window.location.href = '/';
+
+    // window.location.href = '/';
 
   }).catch(e => {
     alert('Deu merda' + e);

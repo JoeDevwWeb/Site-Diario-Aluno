@@ -14,12 +14,13 @@ password: () => document.querySelector('[name=password]')
 
 // Conta nova
 function registrar() {
-    
+loading();
 const email = form.email().value;
 const senha = form.password().value;
 
 firebase.auth().createUserWithEmailAndPassword(email, senha)
 .then(() => {
+  loadingOut();
   window.location.href = "../index.html";
 }).catch((error) => {
   alert('Error:' + error);
@@ -30,12 +31,13 @@ firebase.auth().createUserWithEmailAndPassword(email, senha)
 
 // Ja tem conta
 function login() {
-
+loading();
 const email = form.email().value;
 const senha = form.password().value;
 
 firebase.auth().signInWithEmailAndPassword(email, senha)
   .then(response => {
+    loadingOut();
     window.location.href = "../index.html";
   }).catch(erro => {
     alert("Senha ou email Inválidos");
