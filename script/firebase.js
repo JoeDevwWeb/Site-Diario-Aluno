@@ -11,8 +11,9 @@
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  const bd = firebase.database();
   const storage = firebase.storage();
+  const database = firebase.firestore();
+  
 
 // Desconectar a conta
 async function logout() {
@@ -91,18 +92,24 @@ async function postar() {
     .child(arquivo.name)
     .getDownloadURL()
     .then((url) => {
-      bd
-      .collection('diario')
-      .doc('rotina')
-      .set({
-        titulo : titulo,
-        Autor : nomeAutor,
-        urlimg : url,
-        decrisao : descrisao
+      
+   let obj = {
+        titulo: titulo,
+        Autor: nomeAutor,
+        descrisao: descrisao,
+        url: url
+      }
+      
+    firebase.firestore()
+      .collection('projetos')
+      .add(obj)
+      .then(doc=>{
+        alert('deus certo firebase'+doc.id);
+        loadingOut();
+        window.location.href = '/';
+      }).catch(e=>{
+        alert('Nao deu certo');
       })
-      alert(url);
-      loadingOut();
-      window.location.href = '/';
     })
 
 }
@@ -110,11 +117,47 @@ async function postar() {
 // Apresentar img
 
 
+function addProjectToScreen() {
+  const lista = document.getElementById('ProjetoAdd');
+  
+  transactions.forEach(() =>  {
+    const li = document.createElement('div');
+    
+    const legenda = document.createElement('h2');
+    legenda.innerHTML = 'PEdro joel';
+    li.appendChild(legenda);
+    
+    lista.appendChild(li);
+  });
+  
+};
+
+
+
 // Salvar text
 
 
 function postTexto(){
- let nomeAutor = document.getElementById('autor').value;
+ let nomeAutor = document.getElementById('Autor').value;
+ let titulo = document.getElementById('Titulo').value;
  let texto = document.getElementById('postagem').value;
+ 
+ loading();
+  let obj = {
+        titulo: titulo,
+        Autor: nomeAutor,
+        texto: texto
+      }
+      
+    firebase.firestore()
+      .collection('diario')
+      .add(obj)
+      .then(doc=>{
+        alert('deus certo firebase'+doc.id);
+        loadingOut();
+        window.location.href = '/';
+      }).catch(e=>{
+        alert('Nao deu certo');
+      })
   
 }

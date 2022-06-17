@@ -378,8 +378,29 @@ footer{
   display: none;
 }
 
+.ProjetoAdd{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
+.ProjetoAdd{
+    background: white;
+    border: 0.2px solid transparent;
+}
+.ProjetoAdd:hover{
+    border: 0.2px solid black;
+}
+.ProjetoAdd img {
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover;
+}
+.ProjetoAdd p{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
 
 @media (max-width: 800px) {
 
@@ -391,6 +412,14 @@ footer{
 }
 hr{
     width: 30rem;
+}
+
+.ProjetoAdd{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .projetos{
   width: 80%;
