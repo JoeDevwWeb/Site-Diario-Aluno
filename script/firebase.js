@@ -114,52 +114,28 @@ async function postar() {
 
 }
 
-// Apresentar img
+// function apresentar(){
+//   const lista = document.getElementById('ListaProjetos');
+  
 
-// function Apresentar(){
-//     const 
+
 // }
 
-//   const li = document.createElement('li');
+database
+    .collection("projetos")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            const nomeAutor = document.getElementById('nomeText');
+            nomeAutor.innerHTML = ("Por " + doc.data().Autor);
+            const img = document.getElementById('imgText');
+            img.src = doc.data().url;
 
-//   const divFoto = document.createAttribute('div');
-
-// //   Div principal
-//   const titulo = document.createElement('div');
-//   titulo.classList.add("data");
-  
-//   titulo.innerHTML = transaction.titulo;
-//   titulo.classList.add("projetos");
-//   li.appendChild(titulo);
-
-// // div da foto do projeto
-//   const divfoto = document.createElement('div');
-//   divfoto.classList.add("imgProjeto");
-//   titulo.appendChild(divfoto);
-
-
-//   const divtexto = document.createElement('div');
-//   divtexto.classList.add("TextProjeto");
-//   titulo.appendChild(divtexto);
-
-//   const img = document.createElement('img');
-//   img.src = transaction.url;
-//   titulo.appendChild(img);
-//   divfoto.appendChild(img);
-
-//   const texto = document.createElement('h2');
-//   texto.innerHTML =  transaction.titulo;
-//   divtexto.appendChild(texto);
-
-
-//   const type = document.createElement('p');
-//   type.innerHTML = transaction.transactionType;
-//   titulo.appendChild(type);
-//   divtexto.appendChild(type);
-
-
-//   orderedList.appendChild(li);
-
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
 
 
 
