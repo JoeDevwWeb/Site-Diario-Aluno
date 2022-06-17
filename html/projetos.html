@@ -54,12 +54,32 @@
   </section>
 
 <main class="main">
-  <div class="ProjetoAdd">
+  <ol>
+   <li>
+    <div class="ProjetoAdd">
       <img src="../imagens/perfil.jpg">
       <h2>Projeto robo</h2>
       <p>Por jose</p>
       <p>Descriçao do projeto</p>
     </div>
+   </li>
+   <li>
+    <div class="ProjetoAdd">
+      <img src="../imagens/perfil.jpg">
+      <h2>Projeto robo</h2>
+      <p>Por jose</p>
+      <p>Descriçao do projeto</p>
+    </div>
+   </li>
+   <li>
+    <div class="ProjetoAdd">
+      <img src="../imagens/perfil.jpg">
+      <h2>Projeto robo</h2>
+      <p>Por jose</p>
+      <p>Descriçao do projeto</p>
+    </div>
+   </li>
+  </ol>
   </div>
 </main>
 
@@ -75,14 +95,13 @@
            
          <div class="dadosPrincipais">
            <input type="text" placeholder="Título do projeto">
-           <input type="text" placeholder="Data">
            <input type="text" name="autor" id="nameAutor" placeholder="Autor">
            <label for="arquivo" id="photo">
            <img src="../imagens/camera.png" id="Foto">
            </label>
            <input type="file" name="arquivo" id="arquivo" accept="image/*">
            <textarea name="diario" id="textProjeto" cols="30" rows="10"></textarea>
-           <button type="button">Postar</button>
+           <button type="button" onclick="postar()">Postar</button>
           </div>
        </form>
     </div>

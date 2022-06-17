@@ -76,12 +76,13 @@ function loadingOut() {
 // Variaveis postar imagem 
 
 async function postar() {
+  
   loading();
   let titulo = document.getElementById('titulo').value;
   let nomeAutor = document.getElementById('nomeAutor').value;
   let descrisao = document.getElementById('textProjeto').value;
   let arquivo = document.getElementById('arquivo').files[0];
-  
+
   await storage
   .ref('projetos/')
   .child(arquivo.name)
@@ -103,8 +104,7 @@ async function postar() {
     firebase.firestore()
       .collection('projetos')
       .add(obj)
-      .then(doc=>{
-        alert('deus certo firebase'+doc.id);
+      .then(()=>{
         loadingOut();
         window.location.href = '/';
       }).catch(e=>{
@@ -116,21 +116,50 @@ async function postar() {
 
 // Apresentar img
 
+// function Apresentar(){
+//     const 
+// }
 
-function addProjectToScreen() {
-  const lista = document.getElementById('ProjetoAdd');
+//   const li = document.createElement('li');
+
+//   const divFoto = document.createAttribute('div');
+
+// //   Div principal
+//   const titulo = document.createElement('div');
+//   titulo.classList.add("data");
   
-  transactions.forEach(() =>  {
-    const li = document.createElement('div');
-    
-    const legenda = document.createElement('h2');
-    legenda.innerHTML = 'PEdro joel';
-    li.appendChild(legenda);
-    
-    lista.appendChild(li);
-  });
-  
-};
+//   titulo.innerHTML = transaction.titulo;
+//   titulo.classList.add("projetos");
+//   li.appendChild(titulo);
+
+// // div da foto do projeto
+//   const divfoto = document.createElement('div');
+//   divfoto.classList.add("imgProjeto");
+//   titulo.appendChild(divfoto);
+
+
+//   const divtexto = document.createElement('div');
+//   divtexto.classList.add("TextProjeto");
+//   titulo.appendChild(divtexto);
+
+//   const img = document.createElement('img');
+//   img.src = transaction.url;
+//   titulo.appendChild(img);
+//   divfoto.appendChild(img);
+
+//   const texto = document.createElement('h2');
+//   texto.innerHTML =  transaction.titulo;
+//   divtexto.appendChild(texto);
+
+
+//   const type = document.createElement('p');
+//   type.innerHTML = transaction.transactionType;
+//   titulo.appendChild(type);
+//   divtexto.appendChild(type);
+
+
+//   orderedList.appendChild(li);
+
 
 
 

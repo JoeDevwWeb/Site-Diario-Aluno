@@ -68,15 +68,14 @@
          </div>
            
          <div class="dadosPrincipais">
-           <input type="text" placeholder="Título do projeto">
-           <input type="text" placeholder="Data">
+           <input type="text" id="titulo" placeholder="Título do projeto">
            <input type="text" name="autor" id="nameAutor" placeholder="Autor">
            <label for="arquivo" id="photo">
            <img src="../imagens/camera.png" id="Foto">
            </label>
            <input type="file" name="arquivo" id="arquivo" accept="image/*">
            <textarea name="diario" id="textProjeto" cols="30" rows="10"></textarea>
-           <button type="button">Postar</button>
+           <button type="button" onclick="postar()">Postar</button>
           </div>
        </form>
     </div>
