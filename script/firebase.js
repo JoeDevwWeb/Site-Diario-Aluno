@@ -77,11 +77,12 @@ function loadingOut() {
 
 async function postar() {
   
-  loading();
+  
   let titulo = document.getElementById('titulo').value;
   let nomeAutor = document.getElementById('nomeAutor').value;
   let descrisao = document.getElementById('textProjeto').value;
   let arquivo = document.getElementById('arquivo').files[0];
+  loading();
 
   await storage
   .ref('projetos/')
@@ -114,32 +115,60 @@ async function postar() {
 
 }
 
-// function apresentar(){
-//   const lista = document.getElementById('ListaProjetos');
+// Apresentar 
+   const lista = document.getElementById('ListaProjetos');
   
-
-
-// }
-
+  
 database
     .collection("projetos")
-    .get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            const nomeAutor = document.getElementById('nomeText');
-            nomeAutor.innerHTML = ("Por " + doc.data().Autor);
-            const img = document.getElementById('imgText');
-            img.src = doc.data().url;
-
-        });
+    .onSnapshot(function (documentos){
+    
+    documentos
+      .docChanges()
+      .forEach(function(changes){
+            
+            const documento = changes.doc;
+            const titulo = documento.data().titulo;
+            const autor = documento.data().Autor;
+            const descricao = documento.data().descrisao;
+            const url = documento.data().url;
+            
+            const lista = document.getElementById('ListaProjetos');
+            
+            const li = document.createElement('li');
+            
+            const divIten = document.createElement('div');
+            divIten.classList.add('ProjetoAdd');
+            
+            const img = document.createElement('img');
+            img.src = url;
+            divIten.appendChild(img);
+            
+            const h2 = document.createElement('h2');
+            h2.innerHTML = titulo;
+            divIten.appendChild(h2);
+            
+            const p1 = document.createElement('p');
+            p1.innerHTML = autor;
+            divIten.appendChild(p1);
+            
+            const p2 = document.createElement('p');
+            p2.innerHTML = descricao;
+            divIten.appendChild(p2);
+                    
+            li.appendChild(divIten);
+            lista.appendChild(li);
+        
+            //const nomeAutor = document.getElementById('nomeText');
+            //nomeAutor.innerHTML = ("Por " + documento.data().Autor);
+            //const img = document.getElementById('imgText');
+            //img.src = documento.data().url;
+      })
     })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-
-
+        
 
 // Salvar text
+
 
 
 function postTexto(){
