@@ -11,7 +11,7 @@
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  const bd = firebase.firestore();
+  const bd = firebase.database();
   const storage = firebase.storage();
 
 // Desconectar a conta
@@ -74,13 +74,11 @@ function loadingOut() {
 
 // Variaveis postar imagem 
 
-let titulo = document.getElementById('titulo').value;
-let nameAutor = document.getElementById('nomeAutor').value;
-let texto = document.getElementById('textProjeto').value;
-
-
 async function postar() {
   loading();
+  let titulo = document.getElementById('titulo').value;
+  let nomeAutor = document.getElementById('nomeAutor').value;
+  let descrisao = document.getElementById('textProjeto').value;
   let arquivo = document.getElementById('arquivo').files[0];
   
   await storage
@@ -93,11 +91,24 @@ async function postar() {
     .child(arquivo.name)
     .getDownloadURL()
     .then((url) => {
+      bd
+      .collection('diario')
+      .doc()
+      .set({
+        titulo : titulo,
+        Autor : nomeAutor,
+        urlimg : url,
+        decrisao : descrisao
+      })
       alert(url);
       loadingOut();
+      window.location.href = '/';
     })
 
 }
+
+// Apresentar img
+
 
 // Salvar text
 
@@ -105,7 +116,5 @@ async function postar() {
 function postTexto(){
  let nomeAutor = document.getElementById('autor').value;
  let texto = document.getElementById('postagem').value;
-
-
   
 }
