@@ -93,7 +93,7 @@ async function postar() {
     .then((url) => {
       bd
       .collection('diario')
-      .doc()
+      .doc('rotina')
       .set({
         titulo : titulo,
         Autor : nomeAutor,
