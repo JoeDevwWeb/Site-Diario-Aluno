@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100&family=Joan&display=swap');
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Joan', serif;
   user-zoom: none;
   box-sizing: border-box;
   user-select: none;
@@ -10,33 +8,30 @@
   
 }
 
+/*--------------------------------*/
+/*Codigo fonte*/
 
-
-
-
-
-
-
-/*Header*/
-::-webkit-scrollbar {
+::-webkit-scrollbar { /*Pra não ter Scroll*/
     display: none;
 }
-/*------------ Cabeçalho */
 .header{
     width: 100%;
     height: 3%;
     padding: 2%;
     background: cadetblue;
-}
-.barra{
     display: flex;
     align-items: center;
 }
+#btnOpen {
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 10px;
+}
 /* logo */
-.barra .logo a img{
+.header .logo a img{
     width: 6rem;
 }
-.barra .logo a{
+.header .logo a{
     display: flex;
     align-items: center;
     color: white;
@@ -45,141 +40,66 @@
     text-decoration: none;
 }
 
-/* Foto dp perfil*/
-.perfil #perfil{
-    width: 8rem;
-    border-radius: 50%;
-    background: rgba(250, 250, 250, 0.8);
-}
 /* Barra de ferramentas */
 .barraferramentas{
-    position: fixed;
-    top: 0;
-    left: -240px;
-    width: 240px;
-    height: 100%; 
-    padding-top: 2%;
-    background: teal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.4s ease;
+  background: teal;
+  position: fixed;
+  left: -240px;
+  top: 0;
+  width: 240px;
+  height: 100%;
+  transition: 0.4s ease;
+}
+.barraferramentas #perfil{
+  width: 10rem;
+}
+.barraferramentas .perfil{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.barraferramentas ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 .barraferramentas ul li{
-    list-style: none;
-    background: white;
-    margin: 20px 0;
-    cursor: pointer;
-    border-radius: 3px;
-    padding: 10px 30px;
-}
-.barraferramentas ul li:hover{
-    background: #90cadd;
+  background: white;
+  width: 80%;
+  border-radius: 10px;
 }
 .barraferramentas ul li a{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    color: black;
-    font-weight: 1000;
-    gap: 6px;
-}
-.barraferramentas div:nth-child(4) {
   display: flex;
-  margin-right: 30px;
-  align-self: flex-end;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  padding: 20px 10px;
+  align-items: center;
+  gap: 5px;
+}
+.barraferramentas ul li a:hover{
+  background: rgba(0, 0, 0, 0.3);
+}
+.barraferramentas #deslogar{
+  font-size: 1.4rem;
   cursor: pointer;
-  font-size: 1.2rem;
-  padding: 15px;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+  top: 1rem;
 }
-
-/* botão */
-#btnOpen{
-    cursor: pointer;
-    font-size: 1.4rem;
-    padding: 10px;
-}
-#btnClose{
+.barraferramentas #btnClose{
     font-size: 1.6rem;
     cursor: pointer;
     padding: 10px;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+    margin: 10px;
+    position: relative;
 }
 #btnOpen:hover, #btnClose:hover{
     color: white;
 }
-#closeAdd{
-   font-size: 1.6rem;
-   cursor: pointer;
-}
 
-
-
-
-
-
-
-
-
-
-/*----------------------Page login*/
-.areaCadrastro .login{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: white;
-}
-.areaCadrastro{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: white;
-}
-.areaCadrastro form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-.areaCadrastro form input{
-    padding-left: 10px;
-    border: 0.3px solid rgba(0, 0, 0, 0.2);
-    border-radius: 9px;
-    width: 500px;
-    height: 30px;
-    outline: 0;
-}
-.areaCadrastro form input::placeholder{
-    font-size: 1rem;
-}
-form button{
-    background: teal;
-    color: white;
-    height: 40px;
-    width: 200px;
-    border-radius: 20px;
-    border: transparent;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-}
-hr{
-    margin: 10px;
-    width: 70%;
-}
-.areaCadrastro .logo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4%;
-}
-.areaCadrastro .logo img{
-    width: 10rem;
-}
 
 
 
@@ -444,10 +364,6 @@ hr{
    width: 350px;
    height: 350px;
 }
-.areaCadrastro form input {
-  width: 250px;
-  height: 30px;
-}
 
 }
 
@@ -487,4 +403,15 @@ hr{
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+form button {
+  background: teal;
+  color: white;
+  height: 40px;
+  width: 200px;
+  border-radius: 20px;
+  border: transparent;
+  text-transform: uppercase;
+  font-size: 1.2rem;
 }

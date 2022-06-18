@@ -1,0 +1,66 @@
+
+/*----------------------Page login*/
+.areaCadrastro .login{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+.areaCadrastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+}
+.areaCadrastro form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.areaCadrastro form input{
+    padding-left: 10px;
+    border: 0.3px solid rgba(0, 0, 0, 0.2);
+    border-radius: 9px;
+    width: 500px;
+    height: 30px;
+    outline: 0;
+}
+.areaCadrastro form input::placeholder{
+    font-size: 1rem;
+}
+form button{
+    background: teal;
+    color: white;
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    border: transparent;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+hr{
+    margin: 10px;
+    width: 70%;
+}
+.areaCadrastro .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4%;
+    text-transform: uppercase;
+}
+.areaCadrastro .logo img{
+    width: 10rem;
+}
+
+@media (max-width: 800px) {
+  
+.areaCadrastro form input {
+  width: 250px;
+  height: 30px;
+}
+
+}
